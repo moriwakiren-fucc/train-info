@@ -88,7 +88,7 @@
     #slide2:checked ~ .carousel-container label[for="slide1"].prev,
     #slide2:checked ~ .carousel-container label[for="slide3"].next,
     #slide3:checked ~ .carousel-container label[for="slide2"].prev,
-    #slide3:checked ~ .carousel-container label[for="slide4"].next {
+    #slide3:checked ~ .carousel-container label[for="slide4"].next, 
     #slide4:checked ~ .carousel-container label[for="slide3"].prev,
     #slide4:checked ~ .carousel-container label[for="slide1"].next {
       display: block;
@@ -96,7 +96,7 @@
 
     .nav-buttons {
       text-align: center;
-      height: 10%;
+      margin-top: 10px;
     }
 
     .nav-buttons label {
@@ -108,8 +108,8 @@
 
     #slide1:checked ~ .nav-buttons label[for="slide1"],
     #slide2:checked ~ .nav-buttons label[for="slide2"],
-    #slide3:checked ~ .nav-buttons label[for="slide3"] {
-    #slide4:checked ~ .nav-buttons label[for="slide4"],
+    #slide3:checked ~ .nav-buttons label[for="slide3"],
+    #slide4:checked ~ .nav-buttons label[for="slide4"] {
       color: #000000;
     }
 
@@ -162,6 +162,7 @@ document.write('  <input type="radio" name="carousel" id="slide1" checked>');
 }
 else{
 document.write('  <input type="radio" name="carousel" id="slide1">');
+}
 // -->
 </script>
 <script type="text/javascript">
