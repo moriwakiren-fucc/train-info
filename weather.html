@@ -1,0 +1,254 @@
+  <!DOCTYPE html>
+<html lang="ja">
+<head>
+  <head>列車時刻表・運行情報</head>
+  <meta charset="UTF-8" />
+  <meta name="discription" content="大分駅・古国府駅を通る普通列車の時刻表と運行情報を見ることができるシステムです。上野丘高校からの帰りの電車がわかります。" >
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100vw;
+      height: 160vw;
+      overflow: hidden;
+      margin: auto;
+      margin-top: 0;
+    }
+
+    .slides {
+      display: flex;
+      width: 400%;
+      height: 90%;
+      transition: transform 0.5s ease;
+    }
+
+    .slide {
+      width: 25%;
+      height: 100%;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slide img {
+      width: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    input[name="carousel"] {
+      display: none;
+    }
+
+    #slide1:checked ~ .carousel-container .slides { transform: translateX(0%); }
+    #slide2:checked ~ .carousel-container .slides { transform: translateX(-25%); }
+    #slide3:checked ~ .carousel-container .slides { transform: translateX(-50%); }
+    #slide4:checked ~ .carousel-container .slides { transform: translateX(-75%); }
+
+
+    .arrow {
+      position: fixed;
+      top: 50vh;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1;
+      display: none;
+      opacity: 0.5;
+    }
+    .arrow:hover{
+      opacity:1.0;
+    }
+
+    .prev {
+      left: -5px;
+      }
+    .next {
+      right: -5px;
+      }
+
+    .arrow img {
+      height: 30px;
+    }
+
+    #slide1:checked ~ .carousel-container label[for="slide4"].prev,
+    #slide1:checked ~ .carousel-container label[for="slide2"].next,
+    #slide2:checked ~ .carousel-container label[for="slide1"].prev,
+    #slide2:checked ~ .carousel-container label[for="slide3"].next,
+    #slide3:checked ~ .carousel-container label[for="slide2"].prev,
+    #slide3:checked ~ .carousel-container label[for="slide4"].next, 
+    #slide4:checked ~ .carousel-container label[for="slide3"].prev,
+    #slide4:checked ~ .carousel-container label[for="slide1"].next {
+      display: block;
+    }
+
+    .nav-buttons {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .nav-buttons label {
+      cursor: pointer;
+      font-size: 1.5rem;
+      padding: 0 5px;
+      color: #9e9e9e;
+    }
+
+    #slide1:checked ~ .nav-buttons label[for="slide1"],
+    #slide2:checked ~ .nav-buttons label[for="slide2"],
+    #slide3:checked ~ .nav-buttons label[for="slide3"],
+    #slide4:checked ~ .nav-buttons label[for="slide4"] {
+      color: #000000;
+    }
+
+    .url {
+      text-align: center;
+      font-family: Noto Sans JP;
+      height: 10vw;
+    }
+
+    .url p{
+      font-size: 1.5rem;
+    }
+
+    .url a {
+       text-decoration: none;
+       color: #0000ff;
+    }
+
+    @media (max-width: 600px) {
+      .arrow {
+        font-size: 1.5rem;
+        padding: 5px;
+      }
+
+      .nav-buttons label {
+        font-size: 1rem;
+      }
+    }
+    .iframe {
+      height: 50vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+    .iframe iframe {
+      width: 100%;
+      height: calc(25vh + 100px);
+      margin-top: -100px;
+    }
+  </style>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+//時間帯で画像の表示切り替え
+var now = new Date();
+var time = now.getHours() + now.getMinutes() * 0.01;
+if(time >= 0 && time <= 10.54){
+document.write('  <input type="radio" name="carousel" id="slide1" checked>');
+}
+if(time >= 23.31 && time <= 23.59){
+document.write('  <input type="radio" name="carousel" id="slide1" checked>');
+}
+else{
+document.write('  <input type="radio" name="carousel" id="slide1">');
+}
+// -->
+</script>
+<script type="text/javascript">
+<!--
+//時間帯で画像の表示切り替え
+var now = new Date();
+var time = now.getHours() + now.getMinutes() * 0.01;
+if(time >= 10.55 && time <= 16.22){
+document.write('  <input type="radio" name="carousel" id="slide2" checked>');
+}
+else{
+document.write('  <input type="radio" name="carousel" id="slide2">');
+}
+// -->
+</script>
+<script type="text/javascript">
+<!--
+//時間帯で画像の表示切り替え
+var now = new Date();
+var time = now.getHours() + now.getMinutes() * 0.01;
+if(time >= 16.23 && time <= 19.49){
+document.write('  <input type="radio" name="carousel" id="slide3" checked>');
+}
+else{
+document.write('  <input type="radio" name="carousel" id="slide3">');
+}
+// -->
+</script>
+<script type="text/javascript">
+<!--
+//時間帯で画像の表示切り替え
+var now = new Date();
+var time = now.getHours() + now.getMinutes() * 0.01;
+if(time >= 19.50 && time <= 23.30){
+document.write('  <input type="radio" name="carousel" id="slide4" checked>');
+}
+else{
+document.write('  <input type="radio" name="carousel" id="slide4">');
+}
+// -->
+</script>
+  <div class="iframe">
+    <iframe src="https://www.jrkyushu.co.jp/trains/info/oita.html#ota"></iframe>
+  </div>
+  <div class="iframe">
+    <iframe src="https://www.jma.go.jp/bosai/map.html#8/32.25/132.322/&elem=typhoon_all&typhoon=all&contents=typhoon"></iframe>
+  </div>
+  <div class="iframe1">
+    <iframe src="https://tenki.jp/forecast/9/47/8310/44201/#main-column"></iframe>
+  </div>
+  <div class="iframe1">
+    <iframe src="https://tenki.jp/forecast/9/47/8310/44201/#main"></iframe>
+  </div>
+  <div class="carousel-container">
+    <div class="slides">
+      <div class="slide"><img src="https://moriwakiren-fucc.github.io/train-info/timetable/timetable_img/001.jpg"></div>
+      <div class="slide"><img src="https://moriwakiren-fucc.github.io/train-info/timetable/timetable_img/002.jpg"></div>
+      <div class="slide"><img src="https://moriwakiren-fucc.github.io/train-info/timetable/timetable_img/003.jpg"></div>
+      <div class="slide"><img src="https://moriwakiren-fucc.github.io/train-info/timetable/timetable_img/004.jpg"></div>
+    </div>
+
+    <label class="arrow prev" for="slide4"><img src="https://moriwakiren-fucc.github.io/train-info/icon/prev.png"></label>
+    <label class="arrow next" for="slide2"><img src="https://moriwakiren-fucc.github.io/train-info/icon/next.png"></label>
+    <label class="arrow prev" for="slide1"><img src="https://moriwakiren-fucc.github.io/train-info/icon/prev.png"></label>
+    <label class="arrow next" for="slide3"><img src="https://moriwakiren-fucc.github.io/train-info/icon/next.png"></label>
+    <label class="arrow prev" for="slide2"><img src="https://moriwakiren-fucc.github.io/train-info/icon/prev.png"></label>
+    <label class="arrow next" for="slide4"><img src="https://moriwakiren-fucc.github.io/train-info/icon/next.png"></label>
+    <label class="arrow prev" for="slide3"><img src="https://moriwakiren-fucc.github.io/train-info/icon/prev.png"></label>
+    <label class="arrow next" for="slide1"><img src="https://moriwakiren-fucc.github.io/train-info/icon/next.png"></label>
+
+  </div>
+
+  <div class="nav-buttons">
+    <label for="slide1">●</label>
+    <label for="slide2">●</label>
+    <label for="slide3">●</label>
+    <label for="slide4">●</label>
+
+  </div>
+
+  <div class="url">
+    <p><a href="https://moriwakiren-fucc.github.io/train-info/timetable/timetable.pdf">PDF形式はこちら</a></p>
+  </div>
+</body>
+</html>
