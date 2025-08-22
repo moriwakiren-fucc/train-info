@@ -147,7 +147,17 @@
     }
     .iframe iframe {
       width: 100%;
-      height: calc(25vh + 100px);
+      height: calc(50vh + 100px);
+      margin-top: -100px;
+    }
+    .iframe1 {
+      height: 50vh;
+      width: 50vw;
+      overflow: hidden;
+    }
+    .iframe1 iframe {
+      width: 100%;
+      height: calc(50vh + 100px);
       margin-top: -100px;
     }
   </style>
@@ -211,14 +221,11 @@ document.write('  <input type="radio" name="carousel" id="slide4">');
   <div class="iframe">
     <iframe src="https://www.jrkyushu.co.jp/trains/info/oita.html#ota"></iframe>
   </div>
-  <div class="iframe">
-    <iframe src="https://www.jma.go.jp/bosai/map.html#8/32.25/132.322/&elem=typhoon_all&typhoon=all&contents=typhoon"></iframe>
-  </div>
   <div class="iframe1">
     <iframe src="https://tenki.jp/forecast/9/47/8310/44201/#main-column"></iframe>
   </div>
   <div class="iframe1">
-    <iframe src="https://tenki.jp/forecast/9/47/8310/44201/#main"></iframe>
+    <iframe src="https://weathernews.jp/onebox/tenki/oita/44201/?fm=header#main"></iframe>
   </div>
   <div class="carousel-container">
     <div class="slides">
