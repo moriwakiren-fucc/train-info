@@ -5,57 +5,6 @@
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
 
-.loading {
-  /*ローディング画面の縦横幅を画面いっぱいになるように指定*/
-  width: 100vw;
-  height: 100vh;
-  /*ローディング画面の表示位置を固定*/
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #1082ce;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  /*ローディング画面を0.5秒かけて非表示にする*/
-  transition: all 0.5s linear;
-}
-
-/*ローディング画面を非表示にする*/
-.loading.loaded {
-  /*0.5秒かけてopacityを0にする*/
-  opacity: 0;
-  visibility: hidden;
-}
-
-.loading-text {
-  color: #FFF;
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.spinner {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 3px solid #FFF;
-  border-left-color: #1082ce; 
-  /* アニメーションを1秒かけて実行 */
-  animation: spinner-rotation 1s linear infinite;
-}
-
-/* アニメーションの設定 */
-@keyframes spinner-rotation {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 .content {
   width: 100%;
@@ -84,27 +33,12 @@ table td {
 </head>
 <body>
 
-<!-- ローディング画面 -->
-<div class="loading">
- <p class="loading-text">Loading...</p>
- <div class="spinner"></div>
- </div>
-
   <div class="content">
 
   <table id="sheetTable"></table>
   </div>
   <script>
 
-const loading = document.querySelector(".loading");
-
-//ページの読み込み完了時に処理を実行
-window.addEventListener("load", () => {
-  　//3秒後にローディング画面を非表示にする
-  setTimeout(() => {
-    loading.classList.add("loaded");
-  }, 3000);
-});
 
     const url = "https://script.google.com/macros/s/AKfycbxIfA6kqKdV3c8NS3CmeJk4Yy8Id_4PNCqA5cWejUK69Mcg1zBtGS1X3zA00CVNOLIX/exec"; // GASのURL
 
