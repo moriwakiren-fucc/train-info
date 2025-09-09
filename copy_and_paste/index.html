@@ -6,7 +6,7 @@
     <title>コピーアンドペースト</title>
 
     <!-- PWA用 manifest -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="https://moriwakiren-fucc.github.io/train-info/copy_and_paste/manifest.json">
     <meta name="theme-color" content="#ffffff">
 
     <!-- iOS用アイコン設定（必要なら画像追加） -->
@@ -16,7 +16,7 @@
         // サービスワーカー登録
         if ("serviceWorker" in navigator) {
             window.addEventListener("load", () => {
-                navigator.serviceWorker.register("service-worker.js")
+                navigator.serviceWorker.register("https://moriwakiren-fucc.github.io/train-info/copy_and_paste/service-worker.js")
                 .then(reg => console.log("Service Worker registered:", reg))
                 .catch(err => console.error("Service Worker failed:", err));
             });
