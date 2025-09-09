@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScriptでコピーボタンを作成する</title>
+
+    <!-- PWA用 manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- iOS用アイコン設定（必要なら画像追加） -->
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <script>
+        // サービスワーカー登録
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("service-worker.js")
+                .then(reg => console.log("Service Worker registered:", reg))
+                .catch(err => console.error("Service Worker failed:", err));
+            });
+        }
+    </script>
+</head>
+<body>
+   
+<table><tr>
+<td> <button style="width:100%;" onclick="copyButton('copytxt01')"> <p id="copytxt01" style="font-size:15px;">¹</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt02')"> <p id="copytxt02" style="font-size:15px;">²</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt03')"> <p id="copytxt03" style="font-size:15px;">³</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt04')"> <p id="copytxt04" style="font-size:15px;">⁴</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt05')"> <p id="copytxt05" style="font-size:15px;">⁵</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt06')"> <p id="copytxt06" style="font-size:15px;">⁶</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt07')"> <p id="copytxt07" style="font-size:15px;">⁷</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt08')"> <p id="copytxt08" style="font-size:15px;">⁸</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt09')"> <p id="copytxt09" style="font-size:15px;">⁹</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt10')"> <p id="copytxt10" style="font-size:15px;">⁰</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt11')"> <p id="copytxt11" style="font-size:15px;">⁺</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt12')"> <p id="copytxt12" style="font-size:15px;">⁻</p> </button> </td>
+</tr><tr>
+<td> <button style="width:100%;" onclick="copyButton('copytxt13')"> <p id="copytxt13" style="font-size:15px;">₁</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt14')"> <p id="copytxt14" style="font-size:15px;">₂</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt15')"> <p id="copytxt15" style="font-size:15px;">₃</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt16')"> <p id="copytxt16" style="font-size:15px;">₄</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt17')"> <p id="copytxt17" style="font-size:15px;">₅</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt18')"> <p id="copytxt18" style="font-size:15px;">₆</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt19')"> <p id="copytxt19" style="font-size:15px;">₇</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt20')"> <p id="copytxt20" style="font-size:15px;">₈</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt21')"> <p id="copytxt21" style="font-size:15px;">₉</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt22')"> <p id="copytxt22" style="font-size:15px;">₀</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt23')"> <p id="copytxt23" style="font-size:15px;">₊</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt24')"> <p id="copytxt24" style="font-size:15px;">₋</p> </button> </td>
+</tr><tr>
+<td> <button style="width:100%;" onclick="copyButton('copytxt25')"> <p id="copytxt25" style="font-size:15px;">𝟭</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt26')"> <p id="copytxt26" style="font-size:15px;">𝟮</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt27')"> <p id="copytxt27" style="font-size:15px;">𝟯</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt28')"> <p id="copytxt28" style="font-size:15px;">𝟰</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt29')"> <p id="copytxt29" style="font-size:15px;">𝟱</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt30')"> <p id="copytxt30" style="font-size:15px;">𝟲</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt31')"> <p id="copytxt31" style="font-size:15px;">𝟳</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt32')"> <p id="copytxt32" style="font-size:15px;">𝟴</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt33')"> <p id="copytxt33" style="font-size:15px;">𝟵</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt34')"> <p id="copytxt34" style="font-size:15px;">𝟬</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt35')"> <p id="copytxt35" style="font-size:15px;">'</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt36')"> <p id="copytxt36" style="font-size:15px;">"</p> </button> </td>
+</tr></table>
+    <script>
+        function copyButton(elementId) {
+            var element = document.getElementById(elementId);
+            navigator.clipboard.writeText(element.textContent);
+        }
+    </script>
+</body>
+</html>
