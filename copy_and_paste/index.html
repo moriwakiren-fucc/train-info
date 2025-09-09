@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>コピーアンドペースト</title>
+
+    <!-- PWA用 manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- iOS用アイコン設定（必要なら画像追加） -->
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <script>
+        // サービスワーカー登録
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("service-worker.js")
+                .then(reg => console.log("Service Worker registered:", reg))
+                .catch(err => console.error("Service Worker failed:", err));
+            });
+        }
+    </script>
 </head>
 <body>
    
@@ -49,9 +67,7 @@
 </tr></table>
     <script>
         function copyButton(elementId) {
-            // 指定したIDの要素のテキストを取得
             var element = document.getElementById(elementId);
-            // テキストをクリップボードにコピー
             navigator.clipboard.writeText(element.textContent);
         }
     </script>
