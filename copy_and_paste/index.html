@@ -19,15 +19,15 @@
     <link rel="manifest" href="https://moriwakiren-fucc.github.io/train-info/copy_and_paste/manifest.json">
     <meta name="theme-color" content="#ffffff">
     <script>
-        function copyButton(elementId) {
-            // 指定したIDの要素のテキストを取得
-            var element = document.getElementById(elementId);
-            // テキストをクリップボードにコピー
-            navigator.clipboard.writeText(element.textContent);
+        // サービスワーカー登録
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("service-worker.js")
+                .then(reg => console.log("Service Worker registered:", reg))
+                .catch(err => console.error("Service Worker failed:", err));
+            });
         }
     </script>
-</head>
-<body>
    
 <table><tr>
 <td> <button style="width:100%;" onclick="copyButton('copytxt01')"> <p id="copytxt01" style="font-size:15px;">¹</p> </button> </td>
@@ -77,12 +77,5 @@
             navigator.clipboard.writeText(element.textContent);
         }
     </script>
-</head>
-<body>
-   
-    <button style="width:100%;" onclick="copyButton('copytxt')">
-    <p id="copytxt" style="font-size:15px;">
-    </p>
-    </button>
 </body>
 </html>
