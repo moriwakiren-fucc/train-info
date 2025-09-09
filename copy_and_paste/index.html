@@ -58,18 +58,18 @@
 <td> <button style="width:100%;" onclick="copyButton('copytxt23')"> <p id="copytxt23" style="font-size:15px;">₊</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt24')"> <p id="copytxt24" style="font-size:15px;">₋</p> </button> </td>
 </tr><tr>
-<td> <button style="width:100%;" onclick="copyButton('copytxt25')"> <p id="copytxt25" style="font-size:15px;">𝟭</p> </button> </td>
-<td> <button style="width:100%;" onclick="copyButton('copytxt26')"> <p id="copytxt26" style="font-size:15px;">𝟮</p> </button> </td>
-<td> <button style="width:100%;" onclick="copyButton('copytxt27')"> <p id="copytxt27" style="font-size:15px;">𝟯</p> </button> </td>
-<td> <button style="width:100%;" onclick="copyButton('copytxt28')"> <p id="copytxt28" style="font-size:15px;">𝟰</p> </button> </td>
-<td> <button style="width:100%;" onclick="copyButton('copytxt29')"> <p id="copytxt29" style="font-size:15px;">𝟱</p> </button> </td>
-<td> <button style="width:100%;" onclick="copyButton('copytxt30')"> <p id="copytxt30" style="font-size:15px;">𝟲</p> </button> </td>
-<td> <button style="width:100%;" onclick="copyButton('copytxt31')"> <p id="copytxt31" style="font-size:15px;">𝟳</p> </button> </td>
-<td> <button style="width:100%;" onclick="copyButton('copytxt32')"> <p id="copytxt32" style="font-size:15px;">𝟴</p> </button> </td>
-<td> <button style="width:100%;" onclick="copyButton('copytxt33')"> <p id="copytxt33" style="font-size:15px;">𝟵</p> </button> </td>
-<td> <button style="width:100%;" onclick="copyButton('copytxt34')"> <p id="copytxt34" style="font-size:15px;">𝟬</p> </button> </td>
-<td> <button style="width:100%;" onclick="copyButton('copytxt35')"> <p id="copytxt35" style="font-size:15px;">'</p> </button> </td>
-<td> <button style="width:100%;" onclick="copyButton('copytxt36')"> <p id="copytxt36" style="font-size:15px;">"</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt25')"> <p id="copytxt25" style="font-size:15px;">'</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt26')"> <p id="copytxt26" style="font-size:15px;">"</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt27')"> <p id="copytxt27" style="font-size:15px;"></p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt28')"> <p id="copytxt28" style="font-size:15px;"></p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt29')"> <p id="copytxt29" style="font-size:15px;"></p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt30')"> <p id="copytxt30" style="font-size:15px;"></p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt31')"> <p id="copytxt31" style="font-size:15px;"></p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt32')"> <p id="copytxt32" style="font-size:15px;"></p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt33')"> <p id="copytxt33" style="font-size:15px;"></p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt34')"> <p id="copytxt34" style="font-size:15px;"></p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt35')"> <p id="copytxt35" style="font-size:15px;"></p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt36')"> <p id="copytxt36" style="font-size:15px;"></p> </button> </td>
 </tr></table>
     <script>
         function copyButton(elementId) {
@@ -78,6 +78,50 @@
             // テキストをクリップボードにコピー
             navigator.clipboard.writeText(element.textContent);
         }
+    // キーボードショートカットを追加
+    document.addEventListener("keydown", function(event) {
+        // Altキーを押しながら数字を入力したときに発動
+        if (event.shiftKey) {
+            switch(event.key) {
+                case "1": copyButton("copytxt01"); break;
+                case "2": copyButton("copytxt02"); break;
+                case "3": copyButton("copytxt03"); break;
+                case "4": copyButton("copytxt04"); break;
+                case "5": copyButton("copytxt05"); break;
+                case "6": copyButton("copytxt06"); break;
+                case "7": copyButton("copytxt07"); break;
+                case "8": copyButton("copytxt08"); break;
+                case "9": copyButton("copytxt09"); break;
+                case "0": copyButton("copytxt10"); break;
+                case "-": copyButton("copytxt11"); break;
+                case "^": copyButton("copytxt12"); break;
+                case "q": copyButton("copytxt13"); break;
+                case "w": copyButton("copytxt14"); break;
+                case "e": copyButton("copytxt15"); break;
+                case "r": copyButton("copytxt16"); break;
+                case "t": copyButton("copytxt17"); break;
+                case "y": copyButton("copytxt18"); break;
+                case "u": copyButton("copytxt19"); break;
+                case "i": copyButton("copytxt20"); break;
+                case "o": copyButton("copytxt21"); break;
+                case "p": copyButton("copytxt22"); break;
+                case "@": copyButton("copytxt23"); break;
+                case "[": copyButton("copytxt24"); break;
+                case "a": copyButton("copytxt25"); break;
+                case "s": copyButton("copytxt26"); break;
+                case "d": copyButton("copytxt27"); break;
+                case "f": copyButton("copytxt28"); break;
+                case "g": copyButton("copytxt29"); break;
+                case "h": copyButton("copytxt30"); break;
+                case "j": copyButton("copytxt31"); break;
+                case "k": copyButton("copytxt32"); break;
+                case "l": copyButton("copytxt33"); break;
+                case ";": copyButton("copytxt34"); break;
+                case ":": copyButton("copytxt35"); break;
+                case "]": copyButton("copytxt36"); break;
+            }
+        }
+    });
     </script>
 </body>
 </html>
