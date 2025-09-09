@@ -16,10 +16,16 @@
         width: 100%;
       }
     <!-- PWA用 manifest -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="https://moriwakiren-fucc.github.io/train-info/copy_and_paste/manifest.json">
     <meta name="theme-color" content="#ffffff">
-    <!-- iOS用アイコン設定（必要なら画像追加） -->
-    <link rel="apple-touch-icon" href="icon-192.png">
+    <script>
+        function copyButton(elementId) {
+            // 指定したIDの要素のテキストを取得
+            var element = document.getElementById(elementId);
+            // テキストをクリップボードにコピー
+            navigator.clipboard.writeText(element.textContent);
+        }
+    </script>
 </head>
 <body>
    
@@ -71,5 +77,12 @@
             navigator.clipboard.writeText(element.textContent);
         }
     </script>
+</head>
+<body>
+   
+    <button style="width:100%;" onclick="copyButton('copytxt')">
+    <p id="copytxt" style="font-size:15px;">
+    </p>
+    </button>
 </body>
 </html>
