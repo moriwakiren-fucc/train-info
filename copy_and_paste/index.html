@@ -10,7 +10,10 @@
         width: 96%;
       }
       td {
-        width: 8%;
+        width: calc(100% / 12);
+      }
+      tr {
+        width: calc(100% / 12.5 * 12);
       }
       button {
         width: 100%;
@@ -31,7 +34,7 @@
     </script>
 </head>
    
-<table><tr>
+<table><tr style="margin: 0 calc(100% / 12.5 / 2) 0 0;">
 <td> <button style="width:100%;" onclick="copyButton('copytxt01')"> <p id="copytxt01" style="font-size:15px;">¹</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt02')"> <p id="copytxt02" style="font-size:15px;">²</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt03')"> <p id="copytxt03" style="font-size:15px;">³</p> </button> </td>
@@ -44,7 +47,7 @@
 <td> <button style="width:100%;" onclick="copyButton('copytxt10')"> <p id="copytxt10" style="font-size:15px;">⁰</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt11')"> <p id="copytxt11" style="font-size:15px;">⁺</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt12')"> <p id="copytxt12" style="font-size:15px;">⁻</p> </button> </td>
-</tr><tr>
+</tr><tr style="margin: 0 calc(100% / 12.5 / 4) 0 calc(100% / 12.5 / 4);">
 <td> <button style="width:100%;" onclick="copyButton('copytxt13')"> <p id="copytxt13" style="font-size:15px;">₁</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt14')"> <p id="copytxt14" style="font-size:15px;">₂</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt15')"> <p id="copytxt15" style="font-size:15px;">₃</p> </button> </td>
@@ -57,7 +60,7 @@
 <td> <button style="width:100%;" onclick="copyButton('copytxt22')"> <p id="copytxt22" style="font-size:15px;">₀</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt23')"> <p id="copytxt23" style="font-size:15px;">₊</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt24')"> <p id="copytxt24" style="font-size:15px;">₋</p> </button> </td>
-</tr><tr>
+</tr><tr style="margin: 0 calc(100% / 12.5 / 4) 0 calc(100% / 12.5 / 4);">
 <td> <button style="width:100%;" onclick="copyButton('copytxt25')"> <p id="copytxt25" style="font-size:15px;">α</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt26')"> <p id="copytxt26" style="font-size:15px;">β</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt27')"> <p id="copytxt27" style="font-size:15px;">θ</p> </button> </td>
@@ -70,12 +73,12 @@
 <td> <button style="width:100%;" onclick="copyButton('copytxt34')"> <p id="copytxt34" style="font-size:15px;">𝓍</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt35')"> <p id="copytxt35" style="font-size:15px;">𝓎</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt36')"> <p id="copytxt36" style="font-size:15px;">𝓏</p> </button> </td>
-</tr><tr>
-<td> <button style="width:100%;" onclick="copyButton('copytxt37')"> <p id="copytxt37" style="font-size:15px;">'</p> </button> </td>
-<td> <button style="width:100%;" onclick="copyButton('copytxt38')"> <p id="copytxt38" style="font-size:15px;">"</p> </button> </td>
-<td colspan="3"> <button style="width:100%;" onclick="copyButton('copytxt39')"> <textarea id="copytxt39" style="width:80%; margin:0 auto; font-size:15px; height: 100%;" placeholder="自由入力" onfocus="this.select()"></textarea> </button> </td>
+</tr><tr style="margin: 0 calc(100% / 12.5 / 2) 0 0;">
+<td> <button style="width:100%;" onclick="copyButton('copytxt38')"> <p id="copytxt38" style="font-size:15px;">'</p> </button> </td>
+<td> <button style="width:100%;" onclick="copyButton('copytxt39')"> <p id="copytxt39" style="font-size:15px;">"</p> </button> </td>
 <td colspan="3"> <button style="width:100%;" onclick="copyButton('copytxt40')"> <textarea id="copytxt40" style="width:80%; margin:0 auto; font-size:15px; height: 100%;" placeholder="自由入力" onfocus="this.select()"></textarea> </button> </td>
 <td colspan="3"> <button style="width:100%;" onclick="copyButton('copytxt41')"> <textarea id="copytxt41" style="width:80%; margin:0 auto; font-size:15px; height: 100%;" placeholder="自由入力" onfocus="this.select()"></textarea> </button> </td>
+<td colspan="3"> <button style="width:100%;" onclick="copyButton('copytxt42')"> <textarea id="copytxt42" style="width:80%; margin:0 auto; font-size:15px; height: 100%;" placeholder="自由入力" onfocus="this.select()"></textarea> </button> </td>
 </tr></table>
     <script>
     function copyButton(elementId) {
@@ -132,17 +135,17 @@
                 case "+": copyButton("copytxt34"); break;
                 case "*": copyButton("copytxt35"); break;
                 case "}": copyButton("copytxt36"); break;
-                case "Z": copyButton("copytxt37"); break;
-                case "X": copyButton("copytxt38"); break;
-                case "C": copyButton("copytxt39"); break;
-                case "V": copyButton("copytxt39"); break;
-                case "B": copyButton("copytxt39"); break;
-                case "N": copyButton("copytxt40"); break;
-                case "M": copyButton("copytxt40"); break;
-                case "<": copyButton("copytxt40"); break;
-                case ">": copyButton("copytxt41"); break;
-                case "?": copyButton("copytxt41"); break;
-                case "_": copyButton("copytxt41"); break;
+                case "Z": copyButton("copytxt38"); break;
+                case "X": copyButton("copytxt39"); break;
+                case "C": copyButton("copytxt40"); break;
+                case "V": copyButton("copytxt40"); break;
+                case "B": copyButton("copytxt40"); break;
+                case "N": copyButton("copytxt41"); break;
+                case "M": copyButton("copytxt41"); break;
+                case "<": copyButton("copytxt41"); break;
+                case ">": copyButton("copytxt42"); break;
+                case "?": copyButton("copytxt42"); break;
+                case "_": copyButton("copytxt42"); break;
             }
         }
     });
