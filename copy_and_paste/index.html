@@ -73,15 +73,15 @@
 </tr><tr>
 <td> <button style="width:100%;" onclick="copyButton('copytxt37')"> <p id="copytxt37" style="font-size:15px;">'</p> </button> </td>
 <td> <button style="width:100%;" onclick="copyButton('copytxt38')"> <p id="copytxt38" style="font-size:15px;">"</p> </button> </td>
-<td colspan="3"> <button style="width:100%;" onclick="copyButton('copytxt39')"> <input id="copytxt39" type="text" style="width:80%; margin:0 10%; font-size:15px;" placeholder="自由入力" onfocus="this.select()"> </button> </td>
-<td colspan="3"> <button style="width:100%;" onclick="copyButton('copytxt40')"> <input id="copytxt40" type="text" style="width:80%; margin:0 10%; font-size:15px;" placeholder="自由入力" onfocus="this.select()"> </button> </td>
-<td colspan="3"> <button style="width:100%;" onclick="copyButton('copytxt41')"> <input id="copytxt41" type="text" style="width:80%; margin:0 10%; font-size:15px;" placeholder="自由入力" onfocus="this.select()"> </button> </td>
+<td colspan="3"> <button style="width:100%;" onclick="copyButton('copytxt39')"> <textarea id="copytxt39" style="width:80%; margin:0 auto; font-size:15px; height: 100%;" placeholder="自由入力" onfocus="this.select()"></textarea> </button> </td>
+<td colspan="3"> <button style="width:100%;" onclick="copyButton('copytxt40')"> <textarea id="copytxt40" style="width:80%; margin:0 auto; font-size:15px; height: 100%;" placeholder="自由入力" onfocus="this.select()"></textarea> </button> </td>
+<td colspan="3"> <button style="width:100%;" onclick="copyButton('copytxt41')"> <textarea id="copytxt41" style="width:80%; margin:0 auto; font-size:15px; height: 100%;" placeholder="自由入力" onfocus="this.select()"></textarea> </button> </td>
 </tr></table>
     <script>
     function copyButton(elementId) {
         var element = document.getElementById(elementId);
         let text = "";
-        if (element.tagName === "INPUT") {
+        if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
             text = element.value;   // 入力欄なら value をコピー
         } else {
             text = element.textContent; // pタグなら textContent をコピー
