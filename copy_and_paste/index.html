@@ -5,15 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>コピーアンドペースト</title>
     <style>
-      table {
+      table.front {
         margin: 2%;
         width: 96%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        border: none;
       }
-      td {
-        width: calc(100% / 50);
+      table.front td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 0;
+        height: 70px;
+        border: solid #000000 1.5px;
       }
-      button {
+      table.front button {
+        text-align: center;
+        vertical-align: middle;
         width: 100%;
+        background-color: #00000000;
+        border: none;
+      }
+      table.front textarea {
+         background-color: #00000000;
+         width:80%;
+         margin:0 auto;
+         font-size:15px;
+         height: 100%;
       }
     </style>
     <!-- PWA用 manifest -->
@@ -31,57 +49,57 @@
     </script>
 </head>
    
-<table><tr style="margin: 0 0 0 calc(100% / 12.5 / 4);">
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt01')"> <p id="copytxt01" style="font-size:15px;">¹</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt02')"> <p id="copytxt02" style="font-size:15px;">²</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt03')"> <p id="copytxt03" style="font-size:15px;">³</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt04')"> <p id="copytxt04" style="font-size:15px;">⁴</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt05')"> <p id="copytxt05" style="font-size:15px;">⁵</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt06')"> <p id="copytxt06" style="font-size:15px;">⁶</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt07')"> <p id="copytxt07" style="font-size:15px;">⁷</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt08')"> <p id="copytxt08" style="font-size:15px;">⁸</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt09')"> <p id="copytxt09" style="font-size:15px;">⁹</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt10')"> <p id="copytxt10" style="font-size:15px;">⁰</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt11')"> <p id="copytxt11" style="font-size:15px;">⁺</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt12')"> <p id="copytxt12" style="font-size:15px;">⁻</p> </button> </td>
-<td colspan="2"> </td>
+<table class="front"><colgroup><col span="50" style="width:2%"></colgroup><tr>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt01')"><p id="copytxt01" style="font-size:15px;">¹</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt02')"><p id="copytxt02" style="font-size:15px;">²</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt03')"><p id="copytxt03" style="font-size:15px;">³</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt04')"><p id="copytxt04" style="font-size:15px;">⁴</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt05')"><p id="copytxt05" style="font-size:15px;">⁵</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt06')"><p id="copytxt06" style="font-size:15px;">⁶</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt07')"><p id="copytxt07" style="font-size:15px;">⁷</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt08')"><p id="copytxt08" style="font-size:15px;">⁸</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt09')"><p id="copytxt09" style="font-size:15px;">⁹</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt10')"><p id="copytxt10" style="font-size:15px;">⁰</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt11')"><p id="copytxt11" style="font-size:15px;">⁺</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt12')"><p id="copytxt12" style="font-size:15px;">⁻</p></button></td>
+<td colspan="2"></td>
 </tr><tr>
-<td colspan="1"> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt15')"> <p id="copytxt15" style="font-size:15px;">₁</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt16')"> <p id="copytxt16" style="font-size:15px;">₂</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt17')"> <p id="copytxt17" style="font-size:15px;">₃</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt18')"> <p id="copytxt18" style="font-size:15px;">₄</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt19')"> <p id="copytxt19" style="font-size:15px;">₅</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt20')"> <p id="copytxt20" style="font-size:15px;">₆</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt21')"> <p id="copytxt21" style="font-size:15px;">₇</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt22')"> <p id="copytxt22" style="font-size:15px;">₈</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt23')"> <p id="copytxt23" style="font-size:15px;">₉</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt24')"> <p id="copytxt24" style="font-size:15px;">₀</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt25')"> <p id="copytxt25" style="font-size:15px;">₊</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt26')"> <p id="copytxt26" style="font-size:15px;">₋</p> </button> </td>
-<td colspan="1"> </td>
+<td colspan="1"></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt15')"><p id="copytxt15" style="font-size:15px;">₁</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt16')"><p id="copytxt16" style="font-size:15px;">₂</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt17')"><p id="copytxt17" style="font-size:15px;">₃</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt18')"><p id="copytxt18" style="font-size:15px;">₄</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt19')"><p id="copytxt19" style="font-size:15px;">₅</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt20')"><p id="copytxt20" style="font-size:15px;">₆</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt21')"><p id="copytxt21" style="font-size:15px;">₇</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt22')"><p id="copytxt22" style="font-size:15px;">₈</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt23')"><p id="copytxt23" style="font-size:15px;">₉</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt24')"><p id="copytxt24" style="font-size:15px;">₀</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt25')"><p id="copytxt25" style="font-size:15px;">₊</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt26')"><p id="copytxt26" style="font-size:15px;">₋</p></button></td>
+<td colspan="1"></td>
 </tr><tr>
-<td colspan="2"> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt29')"> <p id="copytxt29" style="font-size:15px;">α</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt30')"> <p id="copytxt30" style="font-size:15px;">β</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt31')"> <p id="copytxt31" style="font-size:15px;">θ</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt32')"> <p id="copytxt32" style="font-size:15px;">𝒶</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt33')"> <p id="copytxt33" style="font-size:15px;">𝒷</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt34')"> <p id="copytxt34" style="font-size:15px;">𝒸</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt35')"> <p id="copytxt35" style="font-size:15px;">𝒹</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt36')"> <p id="copytxt36" style="font-size:15px;">𝓅</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt37')"> <p id="copytxt37" style="font-size:15px;">𝓆</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt38')"> <p id="copytxt38" style="font-size:15px;">𝓍</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt39')"> <p id="copytxt39" style="font-size:15px;">𝓎</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt40')"> <p id="copytxt40" style="font-size:15px;">𝓏</p> </button> </td>
+<td colspan="2"></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt29')"><p id="copytxt29" style="font-size:15px;">α</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt30')"><p id="copytxt30" style="font-size:15px;">β</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt31')"><p id="copytxt31" style="font-size:15px;">θ</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt32')"><p id="copytxt32" style="font-size:15px;">𝒶</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt33')"><p id="copytxt33" style="font-size:15px;">𝒷</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt34')"><p id="copytxt34" style="font-size:15px;">𝒸</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt35')"><p id="copytxt35" style="font-size:15px;">𝒹</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt36')"><p id="copytxt36" style="font-size:15px;">𝓅</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt37')"><p id="copytxt37" style="font-size:15px;">𝓆</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt38')"><p id="copytxt38" style="font-size:15px;">𝓍</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt39')"><p id="copytxt39" style="font-size:15px;">𝓎</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt40')"><p id="copytxt40" style="font-size:15px;">𝓏</p></button></td>
 </tr><tr>
-<td colspan="4"> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt42')"> <p id="copytxt42" style="font-size:15px;">'</p> </button> </td>
-<td colspan="4"> <button style="width:100%;" onclick="copyButton('copytxt43')"> <p id="copytxt43" style="font-size:15px;">"</p> </button> </td>
-<td colspan="12"> <button style="width:100%;" onclick="copyButton('copytxt44')"> <textarea id="copytxt44" style="width:80%; margin:0 auto; font-size:15px; height: 100%;" placeholder="自由入力" onfocus="this.select()"></textarea> </button> </td>
-<td colspan="12"> <button style="width:100%;" onclick="copyButton('copytxt45')"> <textarea id="copytxt45" style="width:80%; margin:0 auto; font-size:15px; height: 100%;" placeholder="自由入力" onfocus="this.select()"></textarea> </button> </td>
-<td colspan="12"> <button style="width:100%;" onclick="copyButton('copytxt46')"> <textarea id="copytxt46" style="width:80%; margin:0 auto; font-size:15px; height: 100%;" placeholder="自由入力" onfocus="this.select()"></textarea> </button> </td>
-<td colspan="2"> </td>
+<td colspan="4"></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt42')"><p id="copytxt42" style="font-size:15px;">'</p></button></td>
+<td colspan="4"><button style="width:100%;" onclick="copyButton('copytxt43')"><p id="copytxt43" style="font-size:15px;">"</p></button></td>
+<td colspan="12"><button style="width:100%;" onclick="copyButton('copytxt44')"><textarea id="copytxt44" placeholder="自由入力" onfocus="this.select()"></textarea></button></td>
+<td colspan="12"><button style="width:100%;" onclick="copyButton('copytxt45')"><textarea id="copytxt45" placeholder="自由入力" onfocus="this.select()"></textarea></button></td>
+<td colspan="12"><button style="width:100%;" onclick="copyButton('copytxt46')"><textarea id="copytxt46" placeholder="自由入力" onfocus="this.select()"></textarea></button></td>
+<td colspan="2"></td>
 </tr></table>
     <script>
     function copyButton(elementId) {
