@@ -146,6 +146,13 @@
             }
         }
     });
+document.querySelectorAll("textarea").forEach(textarea => {
+    textarea.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+            this.blur();  // ESCキーで入力を終了
+        }
+    });
+});
     </script>
 </body>
 </html>
