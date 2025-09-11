@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コピーアンドペースト</title>
+    <style>
+      table.front {
+        margin: 2%;
+        width: 96%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        border: none;
+      }
+      table.front td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 0;
+        height: 70px;
+        border: solid #000000 1.5px;
+      }
+      table.front button {
+        text-align: center;
+        vertical-align: middle;
+        width: 100%;
+        background-color: #00000000;
+        border: none;
+      }
+      table.front textarea {
+         background-color: #00000000;
+         width:80%;
+         margin:0 auto;
+         font-size:15px;
+         height: 100%;
+      }
+    /* 変化させたいクラス */
+    .highlight {
+      background-color: yellow;
+    }
+    </style>
+    <!-- PWA用 manifest -->
+    <link rel="manifest" href="https://moriwakiren-fucc.github.io/train-info/copy_and_paste/manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <script>
+        // サービスワーカー登録
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("https://moriwakiren-fucc.github.io/train-info/copy_and_paste/service-worker.js")
+                .then(reg => console.log("Service Worker registered:", reg))
+                .catch(err => console.error("Service Worker failed:", err));
+            });
+        }
+    </script>
+</head>
+   
+<table class="front"><colgroup><col span="50" style="width:2%"></colgroup><tr>
+<td id="td01" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt01'); highlightCell('td01')"><p id="copytxt01" style="font-size:15px;">¹</p></button></td>
+<td id="td02" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt02'); highlightCell('td02')"><p id="copytxt02" style="font-size:15px;">²</p></button></td>
+<td id="td03" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt03'); highlightCell('td03')"><p id="copytxt03" style="font-size:15px;">³</p></button></td>
+<td id="td04" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt04'); highlightCell('td04')"><p id="copytxt04" style="font-size:15px;">⁴</p></button></td>
+<td id="td05" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt05'); highlightCell('td05')"><p id="copytxt05" style="font-size:15px;">⁵</p></button></td>
+<td id="td06" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt06'); highlightCell('td06')"><p id="copytxt06" style="font-size:15px;">⁶</p></button></td>
+<td id="td07" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt07'); highlightCell('td07')"><p id="copytxt07" style="font-size:15px;">⁷</p></button></td>
+<td id="td08" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt08'); highlightCell('td08')"><p id="copytxt08" style="font-size:15px;">⁸</p></button></td>
+<td id="td09" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt09'); highlightCell('td09')"><p id="copytxt09" style="font-size:15px;">⁹</p></button></td>
+<td id="td10" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt10'); highlightCell('td10')"><p id="copytxt10" style="font-size:15px;">⁰</p></button></td>
+<td id="td11" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt11'); highlightCell('td11')"><p id="copytxt11" style="font-size:15px;">⁺</p></button></td>
+<td id="td12" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt12'); highlightCell('td12')"><p id="copytxt12" style="font-size:15px;">⁻</p></button></td>
+<td colspan="2"></td>
+</tr><tr>
+<td colspan="1"></td>
+<td id="td15" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt15'); highlightCell('td15')"><p id="copytxt15" style="font-size:15px;">₁</p></button></td>
+<td id="td16" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt16'); highlightCell('td16')"><p id="copytxt16" style="font-size:15px;">₂</p></button></td>
+<td id="td17" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt17'); highlightCell('td17')"><p id="copytxt17" style="font-size:15px;">₃</p></button></td>
+<td id="td18" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt18'); highlightCell('td18')"><p id="copytxt18" style="font-size:15px;">₄</p></button></td>
+<td id="td19" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt19'); highlightCell('td19')"><p id="copytxt19" style="font-size:15px;">₅</p></button></td>
+<td id="td20" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt20'); highlightCell('td20')"><p id="copytxt20" style="font-size:15px;">₆</p></button></td>
+<td id="td21" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt21'); highlightCell('td21')"><p id="copytxt21" style="font-size:15px;">₇</p></button></td>
+<td id="td22" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt22'); highlightCell('td22')"><p id="copytxt22" style="font-size:15px;">₈</p></button></td>
+<td id="td23" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt23'); highlightCell('td23')"><p id="copytxt23" style="font-size:15px;">₉</p></button></td>
+<td id="td24" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt24'); highlightCell('td24')"><p id="copytxt24" style="font-size:15px;">₀</p></button></td>
+<td id="td25" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt25'); highlightCell('td25')"><p id="copytxt25" style="font-size:15px;">₊</p></button></td>
+<td id="td26" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt26'); highlightCell('td26')"><p id="copytxt26" style="font-size:15px;">₋</p></button></td>
+<td colspan="1"></td>
+</tr><tr>
+<td colspan="2"></td>
+<td id="td29" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt29'); highlightCell('td29')"><p id="copytxt29" style="font-size:15px;">α</p></button></td>
+<td id="td30" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt30'); highlightCell('td30')"><p id="copytxt30" style="font-size:15px;">β</p></button></td>
+<td id="td31" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt31'); highlightCell('td31')"><p id="copytxt31" style="font-size:15px;">θ</p></button></td>
+<td id="td32" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt32'); highlightCell('td32')"><p id="copytxt32" style="font-size:15px;">𝒶</p></button></td>
+<td id="td33" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt33'); highlightCell('td33')"><p id="copytxt33" style="font-size:15px;">𝒷</p></button></td>
+<td id="td34" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt34'); highlightCell('td34')"><p id="copytxt34" style="font-size:15px;">𝒸</p></button></td>
+<td id="td35" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt35'); highlightCell('td35')"><p id="copytxt35" style="font-size:15px;">𝒹</p></button></td>
+<td id="td36" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt36'); highlightCell('td36')"><p id="copytxt36" style="font-size:15px;">𝓅</p></button></td>
+<td id="td37" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt37'); highlightCell('td37')"><p id="copytxt37" style="font-size:15px;">𝓆</p></button></td>
+<td id="td38" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt38'); highlightCell('td38')"><p id="copytxt38" style="font-size:15px;">𝓍</p></button></td>
+<td id="td39" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt39'); highlightCell('td39')"><p id="copytxt39" style="font-size:15px;">𝓎</p></button></td>
+<td id="td40" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt40'); highlightCell('td40')"><p id="copytxt40" style="font-size:15px;">𝓏</p></button></td>
+</tr><tr>
+<td colspan="4"></td>
+<td id="td42" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt42'); highlightCell('td42')"><p id="copytxt42" style="font-size:15px;">'</p></button></td>
+<td id="td43" colspan="4"><button style="width:100%;" onclick="copyButton('copytxt43'); highlightCell('td43')"><p id="copytxt43" style="font-size:15px;">"</p></button></td>
+<td id="td44" colspan="12"><button style="width:100%;" onclick="copyButton('copytxt44'); highlightCell('td44')"><textarea id="copytxt44" placeholder="自由入力" onfocus="this.select()"></textarea></button></td>
+<td id="td45" colspan="12"><button style="width:100%;" onclick="copyButton('copytxt45'); highlightCell('td45')"><textarea id="copytxt45" placeholder="自由入力" onfocus="this.select()"></textarea></button></td>
+<td id="td46" colspan="12"><button style="width:100%;" onclick="copyButton('copytxt46'); highlightCell('td46')"><textarea id="copytxt46" placeholder="自由入力" onfocus="this.select()"></textarea></button></td>
+<td colspan="2"></td>
+</tr></table>
+    <script>
+    function highlightCell(elementId) {
+        const td = document.getElementById(elementId);
+        td.classList.add("highlight");
+        setTimeout(() => {
+          td.classList.remove("highlight");
+        }, 300); // 0.3秒後に元に戻す
+    }
+    function copyButton(elementId) {
+        var element = document.getElementById(elementId);
+        let text = "";
+        if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+            text = element.value;   // 入力欄なら value をコピー
+        } else {
+            text = element.textContent; // pタグなら textContent をコピー
+        }
+        if (text) {
+            navigator.clipboard.writeText(text);
+            console.log("Copied:", text);
+        }
+    }
+    // キーボードショートカットを追加
+    document.addEventListener("keydown", function(event) {
+        // Altキーを押しながら数字を入力したときに発動
+        if (event.shiftKey) {
+            switch(event.key) {
+                case "!": copyButton("copytxt01"); highlightCell("td01"); break;
+                case "\"": copyButton("copytxt02"); highlightCell("td02"); break;
+                case "#": copyButton("copytxt03"); highlightCell("td03"); break;
+                case "$": copyButton("copytxt04"); highlightCell("td04"); break;
+                case "%": copyButton("copytxt05"); highlightCell("td05"); break;
+                case "&": copyButton("copytxt06"); highlightCell("td06"); break;
+                case "¥'": copyButton("copytxt07"); highlightCell("td07"); break;
+                case "(": copyButton("copytxt08"); highlightCell("td08"); break;
+                case ")": copyButton("copytxt09"); highlightCell("td09"); break;
+                case "0": copyButton("copytxt10"); highlightCell("td10"); break;
+                case "=": copyButton("copytxt11"); highlightCell("td11"); break;
+                case "~": copyButton("copytxt12"); highlightCell("td12"); break;
+                case "Q": copyButton("copytxt15"); highlightCell("td15"); break;
+                case "W": copyButton("copytxt16"); highlightCell("td16"); break;
+                case "E": copyButton("copytxt17"); highlightCell("td17"); break;
+                case "R": copyButton("copytxt18"); highlightCell("td18"); break;
+                case "T": copyButton("copytxt19"); highlightCell("td19"); break;
+                case "Y": copyButton("copytxt20"); highlightCell("td20"); break;
+                case "U": copyButton("copytxt21"); highlightCell("td21"); break;
+                case "I": copyButton("copytxt22"); highlightCell("td22"); break;
+                case "O": copyButton("copytxt23"); highlightCell("td23"); break;
+                case "P": copyButton("copytxt24"); highlightCell("td24"); break;
+                case "`": copyButton("copytxt25"); highlightCell("td25"); break;
+                case "{": copyButton("copytxt26"); highlightCell("td26"); break;
+                case "A": copyButton("copytxt29"); highlightCell("td29"); break;
+                case "S": copyButton("copytxt30"); highlightCell("td30"); break;
+                case "D": copyButton("copytxt31"); highlightCell("td31"); break;
+                case "F": copyButton("copytxt32"); highlightCell("td32"); break;
+                case "G": copyButton("copytxt33"); highlightCell("td33"); break;
+                case "H": copyButton("copytxt34"); highlightCell("td34"); break;
+                case "J": copyButton("copytxt35"); highlightCell("td35"); break;
+                case "K": copyButton("copytxt36"); highlightCell("td36"); break;
+                case "L": copyButton("copytxt37"); highlightCell("td37"); break;
+                case "+": copyButton("copytxt38"); highlightCell("td38"); break;
+                case "*": copyButton("copytxt39"); highlightCell("td39"); break;
+                case "}": copyButton("copytxt40"); highlightCell("td40"); break;
+                case "Z": copyButton("copytxt42"); highlightCell("td42"); break;
+                case "X": copyButton("copytxt43"); highlightCell("td43"); break;
+                case "C": copyButton("copytxt44"); highlightCell("td44"); break;
+                case "V": copyButton("copytxt44"); highlightCell("td44"); break;
+                case "B": copyButton("copytxt44"); highlightCell("td44"); break;
+                case "N": copyButton("copytxt45"); highlightCell("td45"); break;
+                case "M": copyButton("copytxt45"); highlightCell("td45"); break;
+                case "<": copyButton("copytxt45"); highlightCell("td45"); break;
+                case ">": copyButton("copytxt46"); highlightCell("td46"); break;
+                case "?": copyButton("copytxt46"); highlightCell("td46"); break;
+                case "_": copyButton("copytxt46"); highlightCell("td46"); break;
+            }
+        }
+    });
+document.querySelectorAll("textarea").forEach(textarea => {
+    textarea.addEventListener("keydown", function(event) {
+if (event.key === "Enter" && event.shiftKey) {
+            event.preventDefault(); // 改行を防止
+            this.blur();            // 入力終了
+        }
+    });
+});
+    </script>
+</body>
+</html>
