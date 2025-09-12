@@ -3,8 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>コピーアンドペースト</title>
+        <title>コピーアンドペースト便利サイトスマホ版</title>
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+            h1 {
+                font-family: Noto Sans JP;
+            }
+            .exp {
+                font-family: Noto Sans JP;
+            }
+            .exp a {
+                text-decoration: none;
+                color: #0000FF
+                font-weight: bold;
+            }
             table.front {
                 margin: 2%;
                 width: 96%;
@@ -59,6 +71,9 @@
             }
         </script>
     </head>
+    <body>
+        <h1>コピーアンドペースト便利サイト</h1>
+        <p class="exp">　このサイトは主にiPhoneでの利便性が考慮されていますが、他の端末でも作動します。iPad／PCなどでご利用の方は<a href="https://moriwakiren-fucc.github.io/train-info/copy_and_paste/">PC版サイト</a>での利用をおすすめします。<br>　このサイトでは、変換には出てこないけど、使えると嬉しい文字をコピーできます。また、下の自由入力欄を使えば、複数の文字列を交互にコピーしたいときに毎回選択し直す手間が省けます。<br>　なお、このサイトでは一定条件のもとでは、オフラインでも利用できます。詳しくは森脇にお尋ねください。<br>　もし、不具合があれば森脇まで教えてください！</p>
 <table class="front"><colgroup><col span="4" style="width:25%"></colgroup>
 <tr><td id="td01"><button style="width:100%;" onclick="copyButton('copytxt01'); highlightCell('td01')"><p id="copytxt01">¹</p></button></td><td id="td02"><button style="width:100%;" onclick="copyButton('copytxt02'); highlightCell('td02')"><p id="copytxt02">²</p></button></td><td id="td03"><button style="width:100%;" onclick="copyButton('copytxt03'); highlightCell('td03')"><p id="copytxt03">³</p></button></td><td id="td04"><button style="width:100%;" onclick="copyButton('copytxt04'); highlightCell('td04')"><p id="copytxt04">⁴</p></button></td></tr>
 <tr><td id="td05"><button style="width:100%;" onclick="copyButton('copytxt05'); highlightCell('td05')"><p id="copytxt05">⁵</p></button></td><td id="td06"><button style="width:100%;" onclick="copyButton('copytxt06'); highlightCell('td06')"><p id="copytxt06">⁶</p></button></td><td id="td07"><button style="width:100%;" onclick="copyButton('copytxt07'); highlightCell('td07')"><p id="copytxt07">⁷</p></button></td><td id="td08"><button style="width:100%;" onclick="copyButton('copytxt08'); highlightCell('td08')"><p id="copytxt08">⁸</p></button></td></tr>
@@ -70,9 +85,9 @@
 <tr><td id="td29"><button style="width:100%;" onclick="copyButton('copytxt29'); highlightCell('td29')"><p id="copytxt29">𝒷</p></button></td><td id="td30"><button style="width:100%;" onclick="copyButton('copytxt30'); highlightCell('td30')"><p id="copytxt30">𝒸</p></button></td><td id="td31"><button style="width:100%;" onclick="copyButton('copytxt31'); highlightCell('td31')"><p id="copytxt31">𝒹</p></button></td><td id="td32"><button style="width:100%;" onclick="copyButton('copytxt32'); highlightCell('td32')"><p id="copytxt32">𝓅</p></button></td></tr>
 <tr><td id="td33"><button style="width:100%;" onclick="copyButton('copytxt33'); highlightCell('td33')"><p id="copytxt33">𝓆</p></button></td><td id="td34"><button style="width:100%;" onclick="copyButton('copytxt34'); highlightCell('td34')"><p id="copytxt34">𝓍</p></button></td><td id="td35"><button style="width:100%;" onclick="copyButton('copytxt35'); highlightCell('td35')"><p id="copytxt35">𝓎</p></button></td><td id="td36"><button style="width:100%;" onclick="copyButton('copytxt36'); highlightCell('td36')"><p id="copytxt36">𝓏</p></button></td></tr>
 <tr><td id="td37"><button style="width:100%;" onclick="copyButton('copytxt37'); highlightCell('td37')"><p id="copytxt37">'</p></button></td><td id="td38"><button style="width:100%;" onclick="copyButton('copytxt38'); highlightCell('td38')"><p id="copytxt38">"</p></button></td><td id="td39" colspan="2"><button style="width:100%;" onclick="copyButton('copytxt39'); highlightCell('td39')"><p id="copytxt39"></p></button></td></tr>
-<tr><td id="td40" colspan="3" style="border-right: dashed #000000 1.5px;"><textarea id="copytxt40" placeholder="自由入力" onfocus="this.select()"></textarea></td><td id="td41"><button style="width:100%;" onclick="copyButton('copytxt40'); highlightCell('td41')">コピー</button></td></tr>
-<tr><td id="td42" colspan="3" style="border-right: dashed #000000 1.5px;"><textarea id="copytxt42" placeholder="自由入力" onfocus="this.select()"></textarea></td><td id="td43"><button style="width:100%;" onclick="copyButton('copytxt42'); highlightCell('td43')">コピー</button></td></tr>
-<tr><td id="td44" colspan="3" style="border-right: dashed #000000 1.5px;"><textarea id="copytxt44" placeholder="自由入力" onfocus="this.select()"></textarea></td><td id="td45"><button style="width:100%;" onclick="copyButton('copytxt44'); highlightCell('td45')">コピー</button></td></tr>
+<tr><td id="td40" colspan="3" style="border-right: dashed #000000 1.5px;"><textarea id="copytxt40" placeholder="自由入力" onfocus="this.select()"></textarea></td><td id="td41"><button onclick="copyButton('copytxt40'); highlightCell('td41')">コピー</button></td></tr>
+<tr><td id="td42" colspan="3" style="border-right: dashed #000000 1.5px;"><textarea id="copytxt42" placeholder="自由入力" onfocus="this.select()"></textarea></td><td id="td43"><button onclick="copyButton('copytxt42'); highlightCell('td43')">コピー</button></td></tr>
+<tr><td id="td44" colspan="3" style="border-right: dashed #000000 1.5px;"><textarea id="copytxt44" placeholder="自由入力" onfocus="this.select()"></textarea></td><td id="td45"><button onclick="copyButton('copytxt44'); highlightCell('td45')">コピー</button></td></tr>
 </table>
         <script>
             function highlightCell(elementId) {
