@@ -3,8 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>コピーアンドペースト</title>
+        <title>コピーアンドペースト便利サイト</title>
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+            h1 {
+                font-family: Noto Sans JP;
+            }
+            .exp {
+                font-family: Noto Sans JP;
+            }
+            .exp a {
+                text-decoration: none;
+                color: #0000FF
+                font-weight: bold;
+            }
             table.front {
                 margin: 2%;
                 width: 96%;
@@ -57,6 +69,9 @@
             }
         </script>
     </head>
+    <body>
+        <h1>コピーアンドペースト便利サイト</h1>
+        <p class="exp">　このサイトは主にiPadでの利便性が考慮されていますが、他の端末でも作動します。スマートフォンでご利用の方は<a href="https://moriwakiren-fucc.github.io/train-info/copy_and_paste/sp/">スマホ版サイト</a>での利用をおすすめします。<br>　このサイトでは、変換には出てこないけど、使えると嬉しい文字をコピーできます。また、下の自由入力欄を使えば、複数の文字列を交互にコピーしたいときに毎回選択し直す手間が省けます。このサイトにはキーボードショートカットがあり、Shiftキーを押しながら表と対応する位置のキーをおせば、簡単にコピーできます。<br>　なお、このサイトでは一定条件のもとでは、オフラインでも利用できます。詳しくは森脇にお尋ねください。<br>　もし、不具合があれば森脇まで教えてください！</p>
 <table class="front"><colgroup><col span="50" style="width:2%"></colgroup><tr>
 <td id="td01" colspan="4"><button onclick="copyButton('copytxt01'); highlightCell('td01')"><p id="copytxt01">¹</p></button></td>
 <td id="td02" colspan="4"><button onclick="copyButton('copytxt02'); highlightCell('td02')"><p id="copytxt02">²</p></button></td>
@@ -195,4 +210,4 @@
             });
         </script>
     </body>
-    </html>
+</html>
