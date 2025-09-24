@@ -1,7 +1,7 @@
 {
   "name": "コピー記号ツール",
   "short_name": "コピー記号",
-  "start_url": "./index.html",
+  "start_url": "https://moriwakiren-fucc.github.io/train-info/copy_and_paste/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
