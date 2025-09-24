@@ -1,35 +1,36 @@
-const CACHE_NAME = "copy-app-cache-v1";
+const CACHE_NAME = "copy-app-cache-v2";
 const urlsToCache = [
-  "./",
-  "./index.html",
-  "./manifest.json"
+  "/train-info/copy_and_paste/",
+  "/train-info/copy_and_paste/sp/index.html",
+  "/train-info/copy_and_paste/sp/manifest.json"
 ];
 
 // インストール時にキャッシュ
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache);
-    })
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
   );
+  self.skipWaiting(); // すぐに新SWを有効化
 });
 
 // リクエスト時にキャッシュを返す
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
+    caches.match(event.request).then((response) => response || fetch(event.request))
   );
 });
 
 // 古いキャッシュを削除
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.filter((name) => name !== CACHE_NAME).map((name) => caches.delete(name))
+    (async () => {
+      await clients.claim(); // 新SWが即座に制御
+      const cacheNames = await caches.keys();
+      await Promise.all(
+        cacheNames
+          .filter((name) => name !== CACHE_NAME)
+          .map((name) => caches.delete(name))
       );
-    })
+    })()
   );
 });
