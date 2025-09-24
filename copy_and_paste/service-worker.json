@@ -1,8 +1,8 @@
 const CACHE_NAME = "copy-app-cache-v1";
 const urlsToCache = [
-  "./",
-  "./index.html",
-  "./manifest.json"
+  "https://moriwakiren-fucc.github.io/train-info/copy_and_paste/",
+  "https://moriwakiren-fucc.github.io/train-info/copy_and_paste/index.html",
+  "https://moriwakiren-fucc.github.io/train-info/copy_and_paste/manifest.json"
 ];
 
 // インストール時にキャッシュ
