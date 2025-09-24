@@ -133,18 +133,21 @@
                 }, 300); // 0.3秒後に元に戻す
             }
             function copyButton(elementId) {
-                var element = document.getElementById(elementId);
+                const element = document.getElementById(elementId);
                 let text = "";
+
                 if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
-                  text = element.value;   // 入力欄なら value をコピー
+                    text = element.value; // 入力欄は value をコピー（改行も含む）
                 } else {
-                    text = element.textContent; // pタグなら textContent をコピー
+                    text = element.textContent; // 普通の要素は textContent
                 }
+
                 if (text) {
-                    navigator.clipboard.writeText(text);
-                    console.log("Copied:", text);
+                    navigator.clipboard.writeText(text.replace(/\r?\n/g, "\n")); // 改行を統一してコピー
+                    console.log("Copied:", JSON.stringify(text));
                 }
             }
+
             // キーボードショートカットを追加
             document.addEventListener("keydown", function(event) {
                 // Altキーを押しながら数字を入力したときに発動
