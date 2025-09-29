@@ -85,9 +85,9 @@
 <tr><td id="td29"><button style="width:100%;" onclick="copyButton('copytxt29'); highlightCell('td29')"><p id="copytxt29">𝒷</p></button></td><td id="td30"><button style="width:100%;" onclick="copyButton('copytxt30'); highlightCell('td30')"><p id="copytxt30">𝒸</p></button></td><td id="td31"><button style="width:100%;" onclick="copyButton('copytxt31'); highlightCell('td31')"><p id="copytxt31">𝒹</p></button></td><td id="td32"><button style="width:100%;" onclick="copyButton('copytxt32'); highlightCell('td32')"><p id="copytxt32">𝓅</p></button></td></tr>
 <tr><td id="td33"><button style="width:100%;" onclick="copyButton('copytxt33'); highlightCell('td33')"><p id="copytxt33">𝓆</p></button></td><td id="td34"><button style="width:100%;" onclick="copyButton('copytxt34'); highlightCell('td34')"><p id="copytxt34">𝓍</p></button></td><td id="td35"><button style="width:100%;" onclick="copyButton('copytxt35'); highlightCell('td35')"><p id="copytxt35">𝓎</p></button></td><td id="td36"><button style="width:100%;" onclick="copyButton('copytxt36'); highlightCell('td36')"><p id="copytxt36">𝓏</p></button></td></tr>
 <tr><td id="td37"><button style="width:100%;" onclick="copyButton('copytxt37'); highlightCell('td37')"><p id="copytxt37">'</p></button></td><td id="td38"><button style="width:100%;" onclick="copyButton('copytxt38'); highlightCell('td38')"><p id="copytxt38">"</p></button></td><td id="td39" colspan="2"><button style="width:100%;" onclick="copyButton('copytxt39'); highlightCell('td39')"><p id="copytxt39"></p></button></td></tr>
-<tr><td id="td40" colspan="3" style="border-right: dashed #000000 1.5px;"><textarea id="copytxt40" placeholder="自由入力" onfocus="this.select()"></textarea></td><td id="td41"><button onclick="copyButton('copytxt40'); highlightCell('td41')">コピー</button></td></tr>
-<tr><td id="td42" colspan="3" style="border-right: dashed #000000 1.5px;"><textarea id="copytxt42" placeholder="自由入力" onfocus="this.select()"></textarea></td><td id="td43"><button onclick="copyButton('copytxt42'); highlightCell('td43')">コピー</button></td></tr>
-<tr><td id="td44" colspan="3" style="border-right: dashed #000000 1.5px;"><textarea id="copytxt44" placeholder="自由入力" onfocus="this.select()"></textarea></td><td id="td45"><button onclick="copyButton('copytxt44'); highlightCell('td45')">コピー</button></td></tr>
+<tr><td id="td40" colspan="3" style="border-right: dashed #000000 1.5px;"><textarea id="copytxt40" placeholder="自由入力" onfocus="this.select()" onclick="event.stopPropagation()"></textarea></td><td id="td41"><button onclick="copyButton('copytxt40'); highlightCell('td41')">コピー</button></td></tr>
+<tr><td id="td42" colspan="3" style="border-right: dashed #000000 1.5px;"><textarea id="copytxt42" placeholder="自由入力" onfocus="this.select()" onclick="event.stopPropagation()"></textarea></td><td id="td43"><button onclick="copyButton('copytxt42'); highlightCell('td43')">コピー</button></td></tr>
+<tr><td id="td44" colspan="3" style="border-right: dashed #000000 1.5px;"><textarea id="copytxt44" placeholder="自由入力" onfocus="this.select()" onclick="event.stopPropagation()"></textarea></td><td id="td45"><button onclick="copyButton('copytxt44'); highlightCell('td45')">コピー</button></td></tr>
 </table>
         <script>
             function highlightCell(elementId) {
@@ -112,6 +112,15 @@
                     console.log("Copied:", JSON.stringify(text));
                 }
             }
+            // テキストエリアの内部で Enter+Shift の動作を制御
+            document.querySelectorAll("textarea").forEach(textarea => {
+            textarea.addEventListener("keydown", function(event) {
+                if (event.key === "Enter" && event.shiftKey) {
+                    event.preventDefault();
+                    this.blur();
+                }
+            });
+            });
         </script>
     </body>
 </html>
