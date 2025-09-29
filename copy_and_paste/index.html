@@ -222,16 +222,33 @@
       }
     }
   });
+  
+  // --- 自由入力欄の保存と復元 ---
+    window.addEventListener("DOMContentLoaded", () => {
+      const textareas = document.querySelectorAll("textarea");
 
-  // テキストエリアの内部で Enter+Shift の動作を制御
-  document.querySelectorAll("textarea").forEach(textarea => {
-    textarea.addEventListener("keydown", function(event) {
-      if ((event.key === "Enter" && event.shiftKey) || event.key === "Escape") {
-        event.preventDefault();
-        this.blur();
-      }
+      // ページ読み込み時に復元
+      textareas.forEach(area => {
+        const saved = localStorage.getItem(area.id);
+        if (saved !== null) area.value = saved;
+      });
+
+      // 入力が変わるたびに保存
+      textareas.forEach(area => {
+        area.addEventListener("input", () => {
+          localStorage.setItem(area.id, area.value);
+        });
+
+        // Shift+Enter または Esc で入力終了
+        area.addEventListener("keydown", event => {
+          if ((event.key === "Enter" && event.shiftKey) || event.key === "Escape") {
+            event.preventDefault();
+            area.blur();
+          }
+        });
+      });
     });
-  });
+
 </script>
 </body>
 </html>
