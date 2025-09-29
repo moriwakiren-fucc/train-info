@@ -115,7 +115,7 @@
             // テキストエリアの内部で Enter+Shift の動作を制御
             document.querySelectorAll("textarea").forEach(textarea => {
             textarea.addEventListener("keydown", function(event) {
-                if (event.key === "Enter" && event.shiftKey) {
+                if ((event.key === "Enter" && event.shiftKey) || event.key === "Escape") {
                     event.preventDefault();
                     this.blur();
                 }
