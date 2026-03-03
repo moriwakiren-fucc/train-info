@@ -46,6 +46,12 @@ function handleClick(e) {
   board[y][x] = currentPlayer;
   reverseStones(x, y, currentPlayer);
 
+  // ← ★ 追加：全消滅チェック
+  if (checkAllOneColor()) {
+    endGame();
+    return;
+  }
+
   if (hasAnyMove(opponent())) {
     currentPlayer = opponent();
   }
@@ -129,6 +135,21 @@ function hasAnyMove(color) {
     }
   }
   return false;
+}
+
+/* ★ 追加：盤面が全て同じ色かチェック */
+function checkAllOneColor() {
+  let black = 0;
+  let white = 0;
+
+  for (let y = 0; y < 8; y++) {
+    for (let x = 0; x < 8; x++) {
+      if (board[y][x] === "black") black++;
+      if (board[y][x] === "white") white++;
+    }
+  }
+
+  return black === 0 || white === 0;
 }
 
 function endGame() {
