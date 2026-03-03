@@ -46,8 +46,11 @@ function handleClick(e) {
   board[y][x] = currentPlayer;
   reverseStones(x, y, currentPlayer);
 
-  // ← ★ 追加：全消滅チェック
-  if (checkAllOneColor()) {
+  // ★ 先に描画して盤面を確定させる
+  render();
+
+  // ★ その後に終了判定
+  if (isGameOver()) {
     endGame();
     return;
   }
@@ -56,15 +59,8 @@ function handleClick(e) {
     currentPlayer = opponent();
   }
 
-  if (!hasAnyMove("black") && !hasAnyMove("white")) {
-    endGame();
-    return;
-  }
-
   turnText.textContent =
     currentPlayer === "black" ? "黒の番です" : "白の番です";
-
-  render();
 }
 
 function opponent() {
@@ -111,14 +107,14 @@ function reverseStones(x, y, color) {
     const toReverse = [];
 
     while (nx >= 0 && nx < 8 && ny >= 0 && ny < 8) {
-      if (board[ny][nx] === null) return;
+      if (board[ny][nx] === null) break;
       if (board[ny][nx] !== color) {
         toReverse.push([nx, ny]);
       } else {
         toReverse.forEach(([rx, ry]) => {
           board[ry][rx] = color;
         });
-        return;
+        break;
       }
       nx += dx;
       ny += dy;
@@ -126,19 +122,25 @@ function reverseStones(x, y, color) {
   });
 }
 
-function hasAnyMove(color) {
-  for (let y = 0; y < 8; y++) {
-    for (let x = 0; x < 8; x++) {
-      if (board[y][x] === null && canPut(x, y, color)) {
-        return true;
-      }
-    }
-  }
+/* ===== 終了判定 ===== */
+
+function isGameOver() {
+  if (isBoardFull()) return true;
+  if (isAllOneColor()) return true;
+  if (!hasAnyMove("black") && !hasAnyMove("white")) return true;
   return false;
 }
 
-/* ★ 追加：盤面が全て同じ色かチェック */
-function checkAllOneColor() {
+function isBoardFull() {
+  for (let y = 0; y < 8; y++) {
+    for (let x = 0; x < 8; x++) {
+      if (board[y][x] === null) return false;
+    }
+  }
+  return true;
+}
+
+function isAllOneColor() {
   let black = 0;
   let white = 0;
 
@@ -150,6 +152,17 @@ function checkAllOneColor() {
   }
 
   return black === 0 || white === 0;
+}
+
+function hasAnyMove(color) {
+  for (let y = 0; y < 8; y++) {
+    for (let x = 0; x < 8; x++) {
+      if (board[y][x] === null && canPut(x, y, color)) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 function endGame() {
