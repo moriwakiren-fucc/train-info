@@ -1,10 +1,18 @@
 const board = [];
 const boardElement = document.getElementById("board");
 const turnText = document.getElementById("turn");
+const resultText = document.getElementById("result");
 
 let currentPlayer = "black";
 
+const directions = [
+  [1, 0], [-1, 0], [0, 1], [0, -1],
+  [1, 1], [1, -1], [-1, 1], [-1, -1]
+];
+
 function initBoard() {
+  boardElement.innerHTML = "";
+
   for (let y = 0; y < 8; y++) {
     board[y] = [];
     for (let x = 0; x < 8; x++) {
@@ -38,10 +46,23 @@ function handleClick(e) {
   board[y][x] = currentPlayer;
   reverseStones(x, y, currentPlayer);
 
-  currentPlayer = currentPlayer === "black" ? "white" : "black";
-  turnText.textContent = currentPlayer === "black" ? "黒の番です" : "白の番です";
+  if (hasAnyMove(opponent())) {
+    currentPlayer = opponent();
+  }
+
+  if (!hasAnyMove("black") && !hasAnyMove("white")) {
+    endGame();
+    return;
+  }
+
+  turnText.textContent =
+    currentPlayer === "black" ? "黒の番です" : "白の番です";
 
   render();
+}
+
+function opponent() {
+  return currentPlayer === "black" ? "white" : "black";
 }
 
 function render() {
@@ -56,11 +77,6 @@ function render() {
     }
   });
 }
-
-const directions = [
-  [1, 0], [-1, 0], [0, 1], [0, -1],
-  [1, 1], [1, -1], [-1, 1], [-1, -1]
-];
 
 function canPut(x, y, color) {
   return directions.some(([dx, dy]) => {
@@ -102,6 +118,38 @@ function reverseStones(x, y, color) {
       ny += dy;
     }
   });
+}
+
+function hasAnyMove(color) {
+  for (let y = 0; y < 8; y++) {
+    for (let x = 0; x < 8; x++) {
+      if (board[y][x] === null && canPut(x, y, color)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function endGame() {
+  let black = 0;
+  let white = 0;
+
+  for (let y = 0; y < 8; y++) {
+    for (let x = 0; x < 8; x++) {
+      if (board[y][x] === "black") black++;
+      if (board[y][x] === "white") white++;
+    }
+  }
+
+  let result = `黒：${black}個 / 白：${white}個<br>`;
+
+  if (black > white) result += "🎉 黒の勝ち！";
+  else if (white > black) result += "🎉 白の勝ち！";
+  else result += "🤝 引き分け";
+
+  turnText.textContent = "ゲーム終了";
+  resultText.innerHTML = result;
 }
 
 initBoard();
