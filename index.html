@@ -16,6 +16,11 @@
       height: 100%;
     }
 
+    .where details iframe {
+      width:  100dvw;
+      height: 50dvh;
+    }
+
     .carousel-container {
       position: relative;
       width: 100dvw;
@@ -56,7 +61,7 @@
 
     .arrow {
       position: fixed;
-      top: 50vh;
+      top: 50dvh;
       transform: translateY(-50%);
       font-size: 2rem;
       color: white;
@@ -108,7 +113,7 @@
     .url {
       text-align: center;
       font-family: Noto Sans JP;
-      height: 10vw;
+      height: 10dvw;
     }
 
     .url p{
@@ -137,7 +142,7 @@
     }
     .iframe iframe {
       width: 100%;
-      height: calc(50vh + 100px);
+      height: calc(50dvh + 100px);
       margin-top: -100px;
     }
     .p {
@@ -180,15 +185,17 @@ document.write('  <input type="radio" name="carousel" id="slide2">');
   <div class="iframe">
     <iframe src="https://www.jrkyushu.co.jp/trains/info/oita.html#ota"></iframe>
   </div>
-  <details>
-    <summary>久大本線　古国府付近の列車現在地</summary>
-    <iframe src="https://george-doredore.jrkyushu.co.jp/jrqSEN55.html#EKINO1333"></iframe>
-  </details>
+  <div class="where">
+    <details>
+      <summary>久大本線　古国府付近の列車現在地</summary>
+      <iframe src="https://george-doredore.jrkyushu.co.jp/jrqSEN55.html#EKINO1333"></iframe>
+    </details>
 
-  <details>
-    <summary>日豊本線　大分付近の列車の現在地</summary>
-    <iframe src="https://george-doredore.jrkyushu.co.jp/jrqSEN10.html#EKINO1037/"></iframe>
-  </details>
+    <details>
+      <summary>日豊本線　大分付近の列車の現在地</summary>
+      <iframe src="https://george-doredore.jrkyushu.co.jp/jrqSEN10.html#EKINO1037/"></iframe>
+    </details>
+  </div>
   <div class="carousel-container">
     <div class="slides">
       <div class="slide"><img src="https://moriwakiren-fucc.github.io/train-info/timetable/timetable_img/001.JPG"></div>
