@@ -36,13 +36,18 @@
       <option value="28750">海崎</option>
       <option value="28760">佐伯</option>
     </select>
+    <button id="button">適用</button>
     <div>
       <div id="content"></div>
     </div>
     <script>
+      function buttonClick() {
+        document.getElementById('content').innerHTML = `<iframe src="https://www.jrkyushu-timetable.jp/jr-k_time/cgi-bin/jr-k_time/tt_dep.cgi?c=${sta_num}"></iframe>`;
+      }
+      let button = document.getElementById('button');
+      button.addEventListener('click', butotnClick);
       let sta_num = document.getElementById('station');
       let content = document.getElementById('content').innerHTML;
-      document.getElementById('content').innerHTML = `<iframe src="https://www.jrkyushu-timetable.jp/jr-k_time/cgi-bin/jr-k_time/tt_dep.cgi?c=${sta_num}"></iframe>`;
     </script>
   </body>
 </html>
