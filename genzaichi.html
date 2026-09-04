@@ -7,7 +7,42 @@
     <title>列車時刻表・現在地・運行情報</title>
   </head>
   <body>
-    
-    <div id="content"></div>
+    <select id="stations">
+      <option value="28781">中津</option>
+      <option value="28812">柳ヶ浦</option>
+      <option value="28739">宇佐</option>
+      <option value="28773">立石</option>
+      <option value="28783">中山香</option>
+      <option value="28757">杵築</option>
+      <option value="28744">大神</option>
+      <option value="28791">日出</option>
+      <option value="28754">亀川</option>
+      <option value="28805">別府</option>
+      <option value="28784">西大分</option>
+      <option value="28742">大分</option>
+      <option value="28770">高城</option>
+      <option value="28776">鶴崎</option>
+      <option value="28745">大在</option>
+      <option value="28761">坂ノ市</option>
+      <option value="28759">幸崎</option>
+      <option value="28762">佐志生</option>
+      <option value="28766">下ノ江</option>
+      <option value="28758">熊崎</option>
+      <option value="28740">臼杵</option>
+      <option value="28775">津久見</option>
+      <option value="28790">日代</option>
+      <option value="28733">浅海井</option>
+      <option value="28755">狩生</option>
+      <option value="28750">海崎</option>
+      <option value="28760">佐伯</option>
+    </select>
+    <div>
+      <div id="content"></div>
+    </div>
+    <script>
+      let sta_num = document.getElementById('station');
+      let content = document.getElementById('content').innerHTML;
+      document.getElementById('content').innerHTML = `<iframe src="https://www.jrkyushu-timetable.jp/jr-k_time/cgi-bin/jr-k_time/tt_dep.cgi?c=${sta_num}"></iframe>`;
+    </script>
   </body>
 </html>
